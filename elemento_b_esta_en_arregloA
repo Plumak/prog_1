@@ -1,0 +1,11 @@
+public static boolean arregloA_tiene_elementoB(int [] arregloA, int inicio, int [] arregloB){
+boolean esta = false;
+for(int i = inicio ; i <= fin ; i++){
+        for(int j =0 ; j < MAXT ; j++){
+                if(arreglo[i] = arreglo[j]{
+        esta = true;
+        }
+        }
+}
+        return esta;
+}
