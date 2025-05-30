@@ -1,6 +1,6 @@
 package ej_parcial;
 
-public class ejercicio_empanadas {
+public class ej_5_empanadas {
     final static int MAX = 16;
 
     public static void main(String[] args) {

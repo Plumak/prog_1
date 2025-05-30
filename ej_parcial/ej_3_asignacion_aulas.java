@@ -1,5 +1,5 @@
 package ej_parcial;
-public class ejercio_3_asignacion_aulas {
+public class ej_3_asignacion_aulas {
     final static int MAX =20;
     final static int SEPARADOR =0;
     final static int MAXA = 3;
