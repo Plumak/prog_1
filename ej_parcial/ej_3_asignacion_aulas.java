@@ -8,14 +8,13 @@ public class ej_3_asignacion_aulas {
         int [] arreglo_aulas= {2,3,6};
         int inicio =0;
         int fin = -1;
-        int cant_asignadas =0;
-        while(inicio < MAX && cant_asignadas < MAXA){
+        while(inicio < MAX){
             inicio = buscar_inicio(arreglo, fin+1);
             if(inicio< MAX){
                 fin = buscar_fin(arreglo,inicio);
-              if(asignacion(arreglo,arreglo_aulas, inicio,fin)){
-                cant_asignadas++;
-              }
+               if(asignacion(arreglo,arreglo_aulas, inicio,fin)){
+                fin=inicio;
+            }
 
             }
         }
@@ -57,16 +56,14 @@ public class ej_3_asignacion_aulas {
        return asigno;
     }
     public static void eliminar_secuencia(int [] arreglo, int inicio, int fin){
-        int i=0;
-        for(i = inicio ; i<=fin ; i++){
+        for(int i = inicio ; i<=fin ; i++){
             corrimiento_izquierda(arreglo, i);
         }
     }
     public static void corrimiento_izquierda(int [] arreglo, int pos){
-        int i = MAX-1;
-        while(i>pos){
-            arreglo[i] = arreglo[i-1];
-            i--;
+        while(pos < MAX-1){
+            arreglo[pos] = arreglo[pos+1];
+            pos++;
         }
     }
 }
