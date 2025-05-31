@@ -11,60 +11,45 @@ public class ej_1_compresion {
         int fin = -1;
         int cant_repeticiones = 0;
         int primerPosicion = 0;
-        int primerPosicionValor = 0;
-        System.out.println("primer debug");
+        int valor = 0;
+
         while (inicio < MAX) {
-            System.out.println("segundo debug");
+
             inicio = buscar_inicio(arregloM, fin + 1);
             if (inicio < MAX) {
-                System.out.println("tercer debug");
                 fin = buscar_fin(arregloM, inicio);
                 cant_repeticiones = fin - inicio + 1;
                 if (se_repite(arregloM, inicio, fin)) {
-                    System.out.println("cuarto debug");
                     primerPosicion = inicio;
-                    primerPosicionValor = arregloM[inicio];
+                    valor = arregloM[inicio];
                     eliminar_secuencia(arregloM, inicio, fin);
-                    arregloM[inicio] = cant_repeticiones * -1;
-                    corrimientoDerecha(arregloM, primerPosicion,primerPosicionValor, arregloM[inicio]);
-                    fin = inicio;
+                    corrimientoDerecha(arregloM, primerPosicion, valor);
+                     arregloM[inicio] = -cant_repeticiones;
+                    fin = inicio+1;
                 }
             }
         }
         imprimir_arreglo(arregloM);
     }
 
-    public static void corrimientoDerecha(int[] arregloM, int pos, int valor1, int valor2) {
+    public static void corrimientoDerecha(int[] arregloM, int pos, int valor) {
         int i = MAX - 1;
         while (i > pos) {
             arregloM[i] = arregloM[i - 1];
             i--;
         }
-        arregloM[pos+1] = valor2;
-         arregloM[pos] = valor1;
+        arregloM[pos] = valor;
     }
 
     public static boolean se_repite(int[] arregloM, int inicio, int fin) {
-        boolean se_repite = true;
-        while (inicio < MAX && arregloM[inicio] != arregloM[inicio + 1]) {
+        boolean se_repite = false;
+        while (inicio < MAX && arregloM[inicio] == arregloM[inicio + 1]) {
 
             inicio++;
-            se_repite = false;
+            se_repite = true;
         }
         return se_repite;
     }
-
-    /*
-     * public static boolean se_repite(int[] arregloM, int inicio, int fin) {
-     * boolean se_repite_va = false;
-     * for (int i = inicio; i < fin; i++) {
-     * if (arregloM[i] == arregloM[i + 1]) {
-     * se_repite_va = true;
-     * }
-     * }
-     * return se_repite_va;
-     * }
-     */
 
     public static void imprimir_arreglo(int[] arregloM) {
         for (int i = 0; i < MAX; i++) {
@@ -96,7 +81,6 @@ public class ej_1_compresion {
         while (fin < MAX && arregloM[fin] != SEPARADOR) {
             fin++;
         }
-        System.out.println("buscar debug");
         return fin - 1;
     }
 }
