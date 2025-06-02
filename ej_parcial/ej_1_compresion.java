@@ -41,12 +41,13 @@ public class ej_1_compresion {
         arregloM[pos] = valor;
     }
 
-    public static boolean se_repite(int[] arregloM, int inicio, int fin) {
-        boolean se_repite = false;
-        while (inicio < MAX && arregloM[inicio] == arregloM[inicio + 1]) {
-
+   public static boolean se_repite(int[] arregloM, int inicio, int fin) {
+        boolean se_repite = true;
+        while (inicio < MAX && inicio < fin && !se_repite) {
             inicio++;
-            se_repite = true;
+            if(arregloM[inicio] != arregloM[inicio+1]){
+                se_repite = false;
+            }
         }
         return se_repite;
     }
