@@ -23,6 +23,7 @@ public class ej_4_supermercado {
                 }
             }
         }
+        System.out.println("Quedo " + C + "stock de R");   
         mostrar_arreglo(arregloP);
     }
 
