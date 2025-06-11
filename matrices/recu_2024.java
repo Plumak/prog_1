@@ -1,5 +1,3 @@
-package matrices;
-
 public class recu_2024 {
     final static int MAXFILAS = 3;
     final static int MAXCOLUMNAS = 20;
@@ -33,7 +31,6 @@ public class recu_2024 {
                     }
                 }
             }
-
         }
         imprimir_matriz(matriz);
         System.out.println("La cantidad de malezas eliminadas es: " + contador_eliminadas);
@@ -41,11 +38,14 @@ public class recu_2024 {
     }
 
     public static void imprimir_matriz(char[][] matriz) {
-        for (int f = 0; f < MAXFILAS; f++)
-            for (int c = 0; c < MAXCOLUMNAS; c++) {
-                System.out.print("|" + matriz[f][c]);
-            }
+    for (int f = 0; f < MAXFILAS; f++) {
+        for (int c = 0; c < MAXCOLUMNAS; c++) {
+            System.out.print(matriz[f][c] + " ");
+        }
+        System.out.println();
     }
+}
+
 
     public static boolean eliminar_malezas(char[] arreglo, char[] arregloB, int j) {
         boolean elimino = false;
@@ -91,12 +91,19 @@ public class recu_2024 {
 
     public static int cant_no_cultivadas(char[] arreglo, int inicio, int fin) {
         int contador = 0;
-        for (int i = inicio; i <= fin; i++) {
-            if (!cultivada(arreglo, i)) {
+        for (int i = inicio; i < fin; i++) {
+            if (cant_consecutivas(arreglo,i)){
                 contador++;
             }
         }
         return contador;
+    }
+    public static boolean cant_consecutivas(char [] arreglo, int i){
+        boolean consecutiva = false;
+        if(es_maleza(arreglo,i) && es_maleza(arreglo,i+1)){
+            consecutiva=true;
+        }
+        return consecutiva;
     }
 
     public static int buscar_inicio(char[] arreglo, int inicio) {
@@ -111,5 +118,5 @@ public class recu_2024 {
             fin++;
         }
         return fin - 1;
-    }
+}
 }
