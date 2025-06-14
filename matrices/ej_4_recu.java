@@ -11,7 +11,7 @@ int[][] matriz = {
             {0, 988, 899, 874, 0, 254, 258, 652, 200, 0, 568, 958, 210, 0, 0}
         };
 int valor = 0;
-int aux = Integer.MIN_VALUE;
+int aux = 0;
 int count =0;
         for(int i = 0 ; i < MAXFILAS; i++){
             valor = recorrer_matriz(matriz[i]);
